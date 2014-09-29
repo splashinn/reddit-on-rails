@@ -1,20 +1,18 @@
 Rails.application.routes.draw do
+  root 'posts#index'
+  get 'posts/index'
+  
+  # get 'posts/:id/upvote', to 'posts#upvote'
+  # get 'posts/:id/downvote', to 'posts#downvote'
+  
+  get 'posts/search'
 
-
-  resources :posts, only: [:index]
-  resources :topics do
-    resources :posts, except: [:index], controller: 'topics/posts' do
-      resources :comments, only: [:create, :destroy]
-      get '/up-vote' => 'votes#up_vote', as: :up_vote
-      get '/down-vote' => 'votes#down_vote', as: :down_vote
-      resources :favorites, only: [:create, :destroy]
+  resources :posts do
+    member do
+        get 'upvote'
+        get 'downvote'
     end
+    resources :comments
   end
 
-  devise_for :users
-  resources :users, only: [:show, :index, :update]
-
-  get 'about' => 'welcome#about'
-
-  root to: 'welcome#index'
 end
