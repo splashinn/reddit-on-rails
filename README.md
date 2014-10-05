@@ -1,9 +1,7 @@
 Reddit on Rails
 ===============
-### Reddit clone using Ruby, Rails, JavaScript, and Bootstrap.
+### Reddit clone using Ruby(v2.0.0), Rails(v4.1.6), JavaScript, and Bootstrap.
 <br>
-- Rails 4.1.6
-- Ruby 2.0.0
 <br>
 To run project, navigate to project folder and run `rails server` and navigate to `localhost:3000` in your browser.
 <br>
